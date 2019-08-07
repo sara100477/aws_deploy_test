@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+
+<div style="text-align: center">
+<body>
+    <!--제목 block사이에 입력하면 됩니다.-->
+    {% block title %}
+    결제 페이지
+    {% endblock %}
+    <!--타이틀 끝-->
+
+
+    <!--컨텐츠 block사이에 입력하면 됩니다.-->
+    {% block contents %}
+
+
+
+
+    <h4>{{productbuy.pbrand}}</h4>
+    <p>{{productbuy.pitem}}</p>
+    <img src="{{productbuy.productimg.url}}" height="300" alt=""><br>
+    <br><br>
+    <p>결제금액: {{productbuy.lowerlimit}}</p>
+    <p>판매자: {{productbuy.user_id}}</p>
+
+    
+    <a class="btn btn-primary" href="{%url 'pay' productbuy.id %}" role="button">결제하기</a>
+    <a class="btn btn-primary" href="{%url 'home' %}" role="button">홈으로 돌아가기</a>
+
+
+
+
+    {%endblock%}
+    <!--컨텐츠 끝-->
+
+</body>
+</div>

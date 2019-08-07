@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+<body>
+
+  <!--제목 block사이에 입력하면 됩니다.-->
+  {% block title %}
+  상품 상세 페이지
+  {% endblock %}
+  <!--타이틀 끝-->
+
+  <!--컨텐츠 block사이에 입력하면 됩니다.-->
+
+  {% block contents %}
+
+  상품분류: {{details.saletype}}
+  {%ifequal details.saletype "경매"%}
+  <div class="card mb-5" style="max-width: 800px; display: block; margin: 0px auto; ">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="{{details.productimg.url}}" height="300" alt="" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h3 class="card-title">{{details.pbrand}}</h3>
+            <h4 class="card-title">{{details.pitem}}</h4>
+            <p class="card-text">하한가:&nbsp{{details.lowerlimit}}<br>
+              입찰가: {{details.bidprice}}<br>
+              입찰자:{{details.biduser}}<br>
+              원가:&nbsp{{details.originalprice}}<br>
+              작성자:&nbsp{{details.user_id}}
+              <form method="POST" action="{%url 'auction' details.id %}">
+                  <input type="number" name="bidprice">
+                  <input type="submit">
+                </form></p>
+            
+            <a class="btn btn-primary" href="{%url 'buy' details.id%}" role="button">구매</a>
+            <a class="btn btn-primary" href="{%url 'upload_file' %}" role="button">상품등록</a>
+            <a class="btn btn-primary" href="{%url 'home' %}" role="button">돌아가기</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  {%else%}
+  <div class="card mb-5" style="max-width: 800px; display: block; margin: 0px auto; ">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="{{details.productimg.url}}" height="300" alt="" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h3 class="card-title">{{details.pbrand}}</h3>
+            <h4 class="card-title">{{details.pitem}}</h4>
+            <p class="card-text">판매가:&nbsp{{details.lowerlimit}}<br>
+              원가:&nbsp{{details.originalprice}}<br>
+              작성자:&nbsp{{details.user_id}}</p>
+            
+            <a class="btn btn-primary" href="{%url 'buy' details.id%}" role="button">구매</a>
+            <a class="btn btn-primary" href="{%url 'upload_file' %}" role="button">상품등록</a>
+            <a class="btn btn-primary" href="{%url 'home' %}" role="button">돌아가기</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  {%endifequal%}
+
+
+
+  {%endblock%}
+  <!--컨텐츠 끝-->
+
+</body>

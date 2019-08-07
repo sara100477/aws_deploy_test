@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+마이페이지
+{% endblock %}
+
+
+{% block contents %}
+
+
+비밀번호변경
+<button><a href="{% url 'change_pw' %}" >Change</a></button>
+
+내가올린상품
+<div class="card-group">
+{% for u in ufl.all %}
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{u.pbrand}}</h5>
+        <h5 class="card-title">{{u.pitem}}</h5>
+        <p class="card-text">{{u.lowerlimit}}</p>
+        <img src="{{u.file.url}}"width="100" height="100"><br>
+        <img src="{{u.productimg.url}}"width="100" height="100"><br>
+
+    </div>
+</div>
+{%endfor%}
+</div>
+
+    <!--컨텐츠 block사이에 입력하면 됩니다.-->
+
+{%endblock%}

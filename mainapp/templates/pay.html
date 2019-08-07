@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+
+<body>
+    <!--제목 block사이에 입력하면 됩니다.-->
+    {% block title %}
+    결제 완료 페이지
+    {% endblock %}
+    <!--타이틀 끝-->
+
+
+    <!--컨텐츠 block사이에 입력하면 됩니다.-->
+    {% block contents %}
+
+
+    <h1>{{productpay.lowerlimit}}원이 결제완료 되었습니다!</h1>
+
+    <h4>{{productpay.pbrand}}</h4>
+    <p>{{productpay.pitem}}</p>
+    <img src="{{productbuy.productimg.url}}" height="300" alt=""><br>
+    <img src="{{productpay.file.url}}" height="300" alt=""><br>
+    <br><br>
+
+
+    <a class="btn btn-primary" href="{%url 'home' %}" role="button">홈으로 돌아가기</a>
+
+
+
+
+    {%endblock%}
+    <!--컨텐츠 끝-->
+
+</body>
