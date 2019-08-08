@@ -58,6 +58,12 @@
 
 <p>선택된 브랜드: {{selectedcategory.brand}}</p>
 <br>
+<ol class="breadcrumb">
+  <li class="sort-date" value="?sort=date">최신순</a></li>
+  <li class="sort-lowprice" value="?sort=lowprice">낮은가격순</a></li>
+  <li class="sort-highprice" value="?sort=highprice">높은가격순</li>
+</ol>
+
 <select id="sort-select" onchange="location = this.value;">
   <option class="sort" value="/">정렬방식</option>
   <option class="sort-date" value="?sort=date">최신순</option>
